@@ -54,7 +54,7 @@ class ThemeiumShortcodes {
 	 */
 	function add_rich_plugins( $plugin_array )
 	{
-		$plugin_array['themeiumShortcodes'] = ZILLA_TINYMCE_URI . '/plugin.js';
+		$plugin_array['themeiumShortcodes'] = THEMEIUM_TINYMCE_URI . '/plugin.js';
 		return $plugin_array;
 	}
 	
