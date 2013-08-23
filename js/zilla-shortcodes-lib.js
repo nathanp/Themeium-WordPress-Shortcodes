@@ -8,17 +8,19 @@ jQuery(document).ready(function($) {
 				header: '.zilla-toggle-title',
 				collapsible: true,
 				active: false,
+				//Fixes the accordion overflow issue
 				heightStyle: "content",
 				autoHeight: false,
-				clearStyle: true,
+				clearStyle: true
 				});
 		} else {
 			$(this).accordion({
 				header: '.zilla-toggle-title',
 				collapsible: true,
+				//Fixes the accordion overflow issue
 				heightStyle: "content",
 				autoHeight: false,
-				clearStyle: true,
+				clearStyle: true
 			});
 		}
 	});
