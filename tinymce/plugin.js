@@ -1,27 +1,27 @@
 (function ()
 {
-	// create zillaShortcodes plugin
-	tinymce.create("tinymce.plugins.zillaShortcodes",
+	// create themeiumShortcodes plugin
+	tinymce.create("tinymce.plugins.themeiumShortcodes",
 	{
 		init: function ( ed, url )
 		{
-			ed.addCommand("zillaPopup", function ( a, params )
+			ed.addCommand("themeiumPopup", function ( a, params )
 			{
 				var popup = params.identifier;
 				
 				// load thickbox
-				tb_show("Insert Zilla Shortcode", url + "/popup.php?popup=" + popup + "&width=" + 800);
+				tb_show("Insert Themeium Shortcode", url + "/popup.php?popup=" + popup + "&width=" + 800);
 			});
 		},
 		createControl: function ( btn, e )
 		{
-			if ( btn == "zilla_button" )
+			if ( btn == "themeium_button" )
 			{	
 				var a = this;
 				
-				var btn = e.createSplitButton('zilla_button', {
-                    title: "Insert Zilla Shortcode",
-					image: ZillaShortcodes.plugin_folder +"/tinymce/images/icon.png",
+				var btn = e.createSplitButton('themeium_button', {
+                    title: "Insert Themeium Shortcode",
+					image: ThemeiumShortcodes.plugin_folder +"/tinymce/images/icon.png",
 					icons: false
                 });
 
@@ -43,7 +43,7 @@
 			ed.add({
 				title: title,
 				onclick: function () {
-					tinyMCE.activeEditor.execCommand("zillaPopup", false, {
+					tinyMCE.activeEditor.execCommand("themeiumPopup", false, {
 						title: title,
 						identifier: id
 					})
@@ -60,15 +60,15 @@
 		},
 		getInfo: function () {
 			return {
-				longname: 'Zilla Shortcodes',
-				author: 'Orman Clark',
-				authorurl: 'http://themeforest.net/user/ormanclark/',
-				infourl: 'http://wiki.moxiecode.com/',
-				version: "1.0"
+				longname: 'Themeium Shortcodes',
+				author: 'Nathan Parikh',
+				authorurl: 'http://themeforest.net/user/nathanp/',
+				infourl: 'http://themeium.com/',
+				version: "1.3"
 			}
 		}
 	});
 	
-	// add zillaShortcodes plugin
-	tinymce.PluginManager.add("zillaShortcodes", tinymce.plugins.zillaShortcodes);
+	// add themeiumShortcodes plugin
+	tinymce.PluginManager.add("themeiumShortcodes", tinymce.plugins.themeiumShortcodes);
 })();

@@ -1,11 +1,11 @@
 jQuery(document).ready(function($) {
 
-	$(".zilla-tabs").tabs();
+	$(".themeium-tabs").tabs();
 	
-	$(".zilla-toggle").each( function () {
+	$(".themeium-toggle").each( function () {
 		if($(this).attr('data-id') == 'closed') {
 			$(this).accordion({
-				header: '.zilla-toggle-title',
+				header: '.themeium-toggle-title',
 				collapsible: true,
 				active: false,
 				//Fixes the accordion overflow issue
@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 				});
 		} else {
 			$(this).accordion({
-				header: '.zilla-toggle-title',
+				header: '.themeium-toggle-title',
 				collapsible: true,
 				//Fixes the accordion overflow issue
 				heightStyle: "content",

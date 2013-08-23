@@ -4,7 +4,7 @@
 /*	Button Config
 /*-----------------------------------------------------------------------------------*/
 
-$zilla_shortcodes['button'] = array(
+$themeium_shortcodes['button'] = array(
 	'no_preview' => true,
 	'params' => array(
 		'url' => array(
@@ -63,7 +63,7 @@ $zilla_shortcodes['button'] = array(
 			'desc' => __('Add the button\'s text', 'textdomain'),
 		)
 	),
-	'shortcode' => '[zilla_button url="{{url}}" style="{{style}}" size="{{size}}" type="{{type}}" target="{{target}}"] {{content}} [/zilla_button]',
+	'shortcode' => '[themeium_button url="{{url}}" style="{{style}}" size="{{size}}" type="{{type}}" target="{{target}}"] {{content}} [/themeium_button]',
 	'popup_title' => __('Insert Button Shortcode', 'textdomain')
 );
 
@@ -71,7 +71,7 @@ $zilla_shortcodes['button'] = array(
 /*	Alert Config
 /*-----------------------------------------------------------------------------------*/
 
-$zilla_shortcodes['alert'] = array(
+$themeium_shortcodes['alert'] = array(
 	'no_preview' => true,
 	'params' => array(
 		'style' => array(
@@ -94,7 +94,7 @@ $zilla_shortcodes['alert'] = array(
 		)
 		
 	),
-	'shortcode' => '[zilla_alert style="{{style}}"] {{content}} [/zilla_alert]',
+	'shortcode' => '[themeium_alert style="{{style}}"] {{content}} [/themeium_alert]',
 	'popup_title' => __('Insert Alert Shortcode', 'textdomain')
 );
 
@@ -102,7 +102,7 @@ $zilla_shortcodes['alert'] = array(
 /*	Toggle Config
 /*-----------------------------------------------------------------------------------*/
 
-$zilla_shortcodes['toggle'] = array(
+$themeium_shortcodes['toggle'] = array(
 	'no_preview' => true,
 	'params' => array(
 		'title' => array(
@@ -128,7 +128,7 @@ $zilla_shortcodes['toggle'] = array(
 		),
 		
 	),
-	'shortcode' => '[zilla_toggle title="{{title}}" state="{{state}}"] {{content}} [/zilla_toggle]',
+	'shortcode' => '[themeium_toggle title="{{title}}" state="{{state}}"] {{content}} [/themeium_toggle]',
 	'popup_title' => __('Insert Toggle Content Shortcode', 'textdomain')
 );
 
@@ -136,10 +136,10 @@ $zilla_shortcodes['toggle'] = array(
 /*	Tabs Config
 /*-----------------------------------------------------------------------------------*/
 
-$zilla_shortcodes['tabs'] = array(
+$themeium_shortcodes['tabs'] = array(
     'params' => array(),
     'no_preview' => true,
-    'shortcode' => '[zilla_tabs] {{child_shortcode}}  [/zilla_tabs]',
+    'shortcode' => '[themeium_tabs] {{child_shortcode}}  [/themeium_tabs]',
     'popup_title' => __('Insert Tab Shortcode', 'textdomain'),
     
     'child_shortcode' => array(
@@ -157,7 +157,7 @@ $zilla_shortcodes['tabs'] = array(
                 'desc' => __('Add the tabs content', 'textdomain')
             )
         ),
-        'shortcode' => '[zilla_tab title="{{title}}"] {{content}} [/zilla_tab]',
+        'shortcode' => '[themeium_tab title="{{title}}"] {{content}} [/themeium_tab]',
         'clone_button' => __('Add Tab', 'textdomain')
     )
 );
@@ -166,7 +166,7 @@ $zilla_shortcodes['tabs'] = array(
 /*	Columns Config
 /*-----------------------------------------------------------------------------------*/
 
-$zilla_shortcodes['columns'] = array(
+$themeium_shortcodes['columns'] = array(
 	'params' => array(),
 	'shortcode' => ' {{child_shortcode}} ', // as there is no wrapper shortcode
 	'popup_title' => __('Insert Columns Shortcode', 'textdomain'),
@@ -180,28 +180,28 @@ $zilla_shortcodes['columns'] = array(
 				'label' => __('Column Type', 'textdomain'),
 				'desc' => __('Select the type, ie width of the column.', 'textdomain'),
 				'options' => array(
-					'zilla_one_third' => 'One Third',
-					'zilla_one_third_last' => 'One Third Last',
-					'zilla_two_third' => 'Two Thirds',
-					'zilla_two_third_last' => 'Two Thirds Last',
-					'zilla_one_half' => 'One Half',
-					'zilla_one_half_last' => 'One Half Last',
-					'zilla_one_fourth' => 'One Fourth',
-					'zilla_one_fourth_last' => 'One Fourth Last',
-					'zilla_three_fourth' => 'Three Fourth',
-					'zilla_three_fourth_last' => 'Three Fourth Last',
-					'zilla_one_fifth' => 'One Fifth',
-					'zilla_one_fifth_last' => 'One Fifth Last',
-					'zilla_two_fifth' => 'Two Fifth',
-					'zilla_two_fifth_last' => 'Two Fifth Last',
-					'zilla_three_fifth' => 'Three Fifth',
-					'zilla_three_fifth_last' => 'Three Fifth Last',
-					'zilla_four_fifth' => 'Four Fifth',
-					'zilla_four_fifth_last' => 'Four Fifth Last',
-					'zilla_one_sixth' => 'One Sixth',
-					'zilla_one_sixth_last' => 'One Sixth Last',
-					'zilla_five_sixth' => 'Five Sixth',
-					'zilla_five_sixth_last' => 'Five Sixth Last'
+					'themeium_one_third' => 'One Third',
+					'themeium_one_third_last' => 'One Third Last',
+					'themeium_two_third' => 'Two Thirds',
+					'themeium_two_third_last' => 'Two Thirds Last',
+					'themeium_one_half' => 'One Half',
+					'themeium_one_half_last' => 'One Half Last',
+					'themeium_one_fourth' => 'One Fourth',
+					'themeium_one_fourth_last' => 'One Fourth Last',
+					'themeium_three_fourth' => 'Three Fourth',
+					'themeium_three_fourth_last' => 'Three Fourth Last',
+					'themeium_one_fifth' => 'One Fifth',
+					'themeium_one_fifth_last' => 'One Fifth Last',
+					'themeium_two_fifth' => 'Two Fifth',
+					'themeium_two_fifth_last' => 'Two Fifth Last',
+					'themeium_three_fifth' => 'Three Fifth',
+					'themeium_three_fifth_last' => 'Three Fifth Last',
+					'themeium_four_fifth' => 'Four Fifth',
+					'themeium_four_fifth_last' => 'Four Fifth Last',
+					'themeium_one_sixth' => 'One Sixth',
+					'themeium_one_sixth_last' => 'One Sixth Last',
+					'themeium_five_sixth' => 'Five Sixth',
+					'themeium_five_sixth_last' => 'Five Sixth Last'
 				)
 			),
 			'content' => array(

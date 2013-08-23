@@ -1,3 +1,8 @@
+*** Themeium Shortcodes Changelog ***
+22 August 2013 - Version 1.2
+	* Forked and renamed to Themeium Shortcodes
+	* themeium-shortcodes-lib.js - fixed accordion overflow issue
+
 *** ZillaShortcodes Changelog ***
 
 13 Dec 2012 - Version 1.1

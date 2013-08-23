@@ -2,29 +2,29 @@
 // start the popup specefic scripts
 // safe to use $
 jQuery(document).ready(function($) {
-    var zillas = {
+    var themeiums = {
     	loadVals: function()
     	{
-    		var shortcode = $('#_zilla_shortcode').text(),
+    		var shortcode = $('#_themeium_shortcode').text(),
     			uShortcode = shortcode;
     		
     		// fill in the gaps eg {{param}}
-    		$('.zilla-input').each(function() {
+    		$('.themeium-input').each(function() {
     			var input = $(this),
     				id = input.attr('id'),
-    				id = id.replace('zilla_', ''),		// gets rid of the zilla_ prefix
+    				id = id.replace('themeium_', ''),		// gets rid of the themeium_ prefix
     				re = new RegExp("{{"+id+"}}","g");
     				
     			uShortcode = uShortcode.replace(re, input.val());
     		});
     		
     		// adds the filled-in shortcode as hidden input
-    		$('#_zilla_ushortcode').remove();
-    		$('#zilla-sc-form-table').prepend('<div id="_zilla_ushortcode" class="hidden">' + uShortcode + '</div>');
+    		$('#_themeium_ushortcode').remove();
+    		$('#themeium-sc-form-table').prepend('<div id="_themeium_ushortcode" class="hidden">' + uShortcode + '</div>');
     	},
     	cLoadVals: function()
     	{
-    		var shortcode = $('#_zilla_cshortcode').text(),
+    		var shortcode = $('#_themeium_cshortcode').text(),
     			pShortcode = '';
     			shortcodes = '';
     		
@@ -33,10 +33,10 @@ jQuery(document).ready(function($) {
     			var row = $(this),
     				rShortcode = shortcode;
     			
-    			$('.zilla-cinput', this).each(function() {
+    			$('.themeium-cinput', this).each(function() {
     				var input = $(this),
     					id = input.attr('id'),
-    					id = id.replace('zilla_', '')		// gets rid of the zilla_ prefix
+    					id = id.replace('themeium_', '')		// gets rid of the themeium_ prefix
     					re = new RegExp("{{"+id+"}}","g");
     					
     				rShortcode = rShortcode.replace(re, input.val());
@@ -46,16 +46,16 @@ jQuery(document).ready(function($) {
     		});
     		
     		// adds the filled-in shortcode as hidden input
-    		$('#_zilla_cshortcodes').remove();
-    		$('.child-clone-rows').prepend('<div id="_zilla_cshortcodes" class="hidden">' + shortcodes + '</div>');
+    		$('#_themeium_cshortcodes').remove();
+    		$('.child-clone-rows').prepend('<div id="_themeium_cshortcodes" class="hidden">' + shortcodes + '</div>');
     		
     		// add to parent shortcode
     		this.loadVals();
-    		pShortcode = $('#_zilla_ushortcode').text().replace('{{child_shortcode}}', shortcodes);
+    		pShortcode = $('#_themeium_ushortcode').text().replace('{{child_shortcode}}', shortcodes);
     		
     		// add updated parent shortcode
-    		$('#_zilla_ushortcode').remove();
-    		$('#zilla-sc-form-table').prepend('<div id="_zilla_ushortcode" class="hidden">' + pShortcode + '</div>');
+    		$('#_themeium_ushortcode').remove();
+    		$('#themeium-sc-form-table').prepend('<div id="_themeium_ushortcode" class="hidden">' + pShortcode + '</div>');
     	},
     	children: function()
     	{
@@ -94,12 +94,12 @@ jQuery(document).ready(function($) {
     	{
 			var	ajaxCont = $('#TB_ajaxContent'),
 				tbWindow = $('#TB_window'),
-				zillaPopup = $('#zilla-popup');
+				themeiumPopup = $('#themeium-popup');
 
             tbWindow.css({
-                height: zillaPopup.outerHeight() + 50,
-                width: zillaPopup.outerWidth(),
-                marginLeft: -(zillaPopup.outerWidth()/2)
+                height: themeiumPopup.outerHeight() + 50,
+                width: themeiumPopup.outerWidth(),
+                marginLeft: -(themeiumPopup.outerWidth()/2)
             });
 
 			ajaxCont.css({
@@ -108,44 +108,44 @@ jQuery(document).ready(function($) {
 				paddingRight: 0,
 				height: (tbWindow.outerHeight()-47),
 				overflow: 'auto', // IMPORTANT
-				width: zillaPopup.outerWidth()
+				width: themeiumPopup.outerWidth()
 			});
 			
-			$('#zilla-popup').addClass('no_preview');
+			$('#themeium-popup').addClass('no_preview');
     	},
     	load: function()
     	{
-    		var	zillas = this,
-    			popup = $('#zilla-popup'),
-    			form = $('#zilla-sc-form', popup),
-    			shortcode = $('#_zilla_shortcode', form).text(),
-    			popupType = $('#_zilla_popup', form).text(),
+    		var	themeiums = this,
+    			popup = $('#themeium-popup'),
+    			form = $('#themeium-sc-form', popup),
+    			shortcode = $('#_themeium_shortcode', form).text(),
+    			popupType = $('#_themeium_popup', form).text(),
     			uShortcode = '';
     		
     		// resize TB
-    		zillas.resizeTB();
-    		$(window).resize(function() { zillas.resizeTB() });
+    		themeiums.resizeTB();
+    		$(window).resize(function() { themeiums.resizeTB() });
     		
     		// initialise
-    		zillas.loadVals();
-    		zillas.children();
-    		zillas.cLoadVals();
+    		themeiums.loadVals();
+    		themeiums.children();
+    		themeiums.cLoadVals();
     		
     		// update on children value change
-    		$('.zilla-cinput', form).live('change', function() {
-    			zillas.cLoadVals();
+    		$('.themeium-cinput', form).live('change', function() {
+    			themeiums.cLoadVals();
     		});
     		
     		// update on value change
-    		$('.zilla-input', form).change(function() {
-    			zillas.loadVals();
+    		$('.themeium-input', form).change(function() {
+    			themeiums.loadVals();
     		});
     		
     		// when insert is clicked
-    		$('.zilla-insert', form).click(function() {    		 			
+    		$('.themeium-insert', form).click(function() {    		 			
     			if(window.tinyMCE)
 				{
-					window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, $('#_zilla_ushortcode', form).html());
+					window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, $('#_themeium_ushortcode', form).html());
 					tb_remove();
 				}
     		});
@@ -153,5 +153,5 @@ jQuery(document).ready(function($) {
 	}
     
     // run
-    $('#zilla-popup').livequery( function() { zillas.load(); } );
+    $('#themeium-popup').livequery( function() { themeiums.load(); } );
 });

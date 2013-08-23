@@ -3,7 +3,7 @@
 // load wordpress
 require_once('get_wp.php');
 
-class zilla_shortcodes
+class themeium_shortcodes
 {
 	var	$conf;
 	var	$popup;
@@ -41,31 +41,31 @@ class zilla_shortcodes
 		// get config file
 		require_once( $this->conf );
 		
-		if( isset( $zilla_shortcodes[$this->popup]['child_shortcode'] ) )
+		if( isset( $themeium_shortcodes[$this->popup]['child_shortcode'] ) )
 			$this->has_child = true;
 		
-		if( isset( $zilla_shortcodes ) && is_array( $zilla_shortcodes ) )
+		if( isset( $themeium_shortcodes ) && is_array( $themeium_shortcodes ) )
 		{
 			// get shortcode config stuff
-			$this->params = $zilla_shortcodes[$this->popup]['params'];
-			$this->shortcode = $zilla_shortcodes[$this->popup]['shortcode'];
-			$this->popup_title = $zilla_shortcodes[$this->popup]['popup_title'];
+			$this->params = $themeium_shortcodes[$this->popup]['params'];
+			$this->shortcode = $themeium_shortcodes[$this->popup]['shortcode'];
+			$this->popup_title = $themeium_shortcodes[$this->popup]['popup_title'];
 			
 			// adds stuff for js use			
-			$this->append_output( "\n" . '<div id="_zilla_shortcode" class="hidden">' . $this->shortcode . '</div>' );
-			$this->append_output( "\n" . '<div id="_zilla_popup" class="hidden">' . $this->popup . '</div>' );
+			$this->append_output( "\n" . '<div id="_themeium_shortcode" class="hidden">' . $this->shortcode . '</div>' );
+			$this->append_output( "\n" . '<div id="_themeium_popup" class="hidden">' . $this->popup . '</div>' );
 			
-			if( isset( $zilla_shortcodes[$this->popup]['no_preview'] ) && $zilla_shortcodes[$this->popup]['no_preview'] )
+			if( isset( $themeium_shortcodes[$this->popup]['no_preview'] ) && $themeium_shortcodes[$this->popup]['no_preview'] )
 			{
-				//$this->append_output( "\n" . '<div id="_zilla_preview" class="hidden">false</div>' );
+				//$this->append_output( "\n" . '<div id="_themeium_preview" class="hidden">false</div>' );
 				$this->no_preview = true;		
 			}
 			
 			// filters and excutes params
 			foreach( $this->params as $pkey => $param )
 			{
-				// prefix the fields names and ids with zilla_
-				$pkey = 'zilla_' . $pkey;
+				// prefix the fields names and ids with themeium_
+				$pkey = 'themeium_' . $pkey;
 				
 				// popup form row start
 				$row_start  = '<tbody>' . "\n";
@@ -74,7 +74,7 @@ class zilla_shortcodes
 				$row_start .= '<td class="field">' . "\n";
 				
 				// popup form row end
-				$row_end	= '<span class="zilla-form-desc">' . $param['desc'] . '</span>' . "\n";
+				$row_end	= '<span class="themeium-form-desc">' . $param['desc'] . '</span>' . "\n";
 				$row_end   .= '</td>' . "\n";
 				$row_end   .= '</tr>' . "\n";					
 				$row_end   .= '</tbody>' . "\n";
@@ -85,7 +85,7 @@ class zilla_shortcodes
 						
 						// prepare
 						$output  = $row_start;
-						$output .= '<input type="text" class="zilla-form-text zilla-input" name="' . $pkey . '" id="' . $pkey . '" value="' . $param['std'] . '" />' . "\n";
+						$output .= '<input type="text" class="themeium-form-text themeium-input" name="' . $pkey . '" id="' . $pkey . '" value="' . $param['std'] . '" />' . "\n";
 						$output .= $row_end;
 						
 						// append
@@ -97,7 +97,7 @@ class zilla_shortcodes
 						
 						// prepare
 						$output  = $row_start;
-						$output .= '<textarea rows="10" cols="30" name="' . $pkey . '" id="' . $pkey . '" class="zilla-form-textarea zilla-input">' . $param['std'] . '</textarea>' . "\n";
+						$output .= '<textarea rows="10" cols="30" name="' . $pkey . '" id="' . $pkey . '" class="themeium-form-textarea themeium-input">' . $param['std'] . '</textarea>' . "\n";
 						$output .= $row_end;
 						
 						// append
@@ -109,7 +109,7 @@ class zilla_shortcodes
 						
 						// prepare
 						$output  = $row_start;
-						$output .= '<select name="' . $pkey . '" id="' . $pkey . '" class="zilla-form-select zilla-input">' . "\n";
+						$output .= '<select name="' . $pkey . '" id="' . $pkey . '" class="themeium-form-select themeium-input">' . "\n";
 						
 						foreach( $param['options'] as $value => $option )
 						{
@@ -128,8 +128,8 @@ class zilla_shortcodes
 						
 						// prepare
 						$output  = $row_start;
-						$output .= '<label for="' . $pkey . '" class="zilla-form-checkbox">' . "\n";
-						$output .= '<input type="checkbox" class="zilla-input" name="' . $pkey . '" id="' . $pkey . '" ' . ( $param['std'] ? 'checked' : '' ) . ' />' . "\n";
+						$output .= '<label for="' . $pkey . '" class="themeium-form-checkbox">' . "\n";
+						$output .= '<input type="checkbox" class="themeium-input" name="' . $pkey . '" id="' . $pkey . '" ' . ( $param['std'] ? 'checked' : '' ) . ' />' . "\n";
 						$output .= ' ' . $param['checkbox_text'] . '</label>' . "\n";
 						$output .= $row_end;
 						
@@ -141,20 +141,20 @@ class zilla_shortcodes
 			}
 			
 			// checks if has a child shortcode
-			if( isset( $zilla_shortcodes[$this->popup]['child_shortcode'] ) )
+			if( isset( $themeium_shortcodes[$this->popup]['child_shortcode'] ) )
 			{
 				// set child shortcode
-				$this->cparams = $zilla_shortcodes[$this->popup]['child_shortcode']['params'];
-				$this->cshortcode = $zilla_shortcodes[$this->popup]['child_shortcode']['shortcode'];
+				$this->cparams = $themeium_shortcodes[$this->popup]['child_shortcode']['params'];
+				$this->cshortcode = $themeium_shortcodes[$this->popup]['child_shortcode']['shortcode'];
 			
 				// popup parent form row start
 				$prow_start  = '<tbody>' . "\n";
 				$prow_start .= '<tr class="form-row has-child">' . "\n";
-				$prow_start .= '<td><a href="#" id="form-child-add" class="button-secondary">' . $zilla_shortcodes[$this->popup]['child_shortcode']['clone_button'] . '</a>' . "\n";
+				$prow_start .= '<td><a href="#" id="form-child-add" class="button-secondary">' . $themeium_shortcodes[$this->popup]['child_shortcode']['clone_button'] . '</a>' . "\n";
 				$prow_start .= '<div class="child-clone-rows">' . "\n";
 				
 				// for js use
-				$prow_start .= '<div id="_zilla_cshortcode" class="hidden">' . $this->cshortcode . '</div>' . "\n";
+				$prow_start .= '<div id="_themeium_cshortcode" class="hidden">' . $this->cshortcode . '</div>' . "\n";
 				
 				// start the default row
 				$prow_start .= '<div class="child-clone-row">' . "\n";
@@ -166,8 +166,8 @@ class zilla_shortcodes
 				foreach( $this->cparams as $cpkey => $cparam )
 				{
 				
-					// prefix the fields names and ids with zilla_
-					$cpkey = 'zilla_' . $cpkey;
+					// prefix the fields names and ids with themeium_
+					$cpkey = 'themeium_' . $cpkey;
 					
 					// popup form row start
 					$crow_start  = '<li class="child-clone-row-form-row">' . "\n";
@@ -187,7 +187,7 @@ class zilla_shortcodes
 							
 							// prepare
 							$coutput  = $crow_start;
-							$coutput .= '<input type="text" class="zilla-form-text zilla-cinput" name="' . $cpkey . '" id="' . $cpkey . '" value="' . $cparam['std'] . '" />' . "\n";
+							$coutput .= '<input type="text" class="themeium-form-text themeium-cinput" name="' . $cpkey . '" id="' . $cpkey . '" value="' . $cparam['std'] . '" />' . "\n";
 							$coutput .= $crow_end;
 							
 							// append
@@ -199,7 +199,7 @@ class zilla_shortcodes
 							
 							// prepare
 							$coutput  = $crow_start;
-							$coutput .= '<textarea rows="10" cols="30" name="' . $cpkey . '" id="' . $cpkey . '" class="zilla-form-textarea zilla-cinput">' . $cparam['std'] . '</textarea>' . "\n";
+							$coutput .= '<textarea rows="10" cols="30" name="' . $cpkey . '" id="' . $cpkey . '" class="themeium-form-textarea themeium-cinput">' . $cparam['std'] . '</textarea>' . "\n";
 							$coutput .= $crow_end;
 							
 							// append
@@ -211,7 +211,7 @@ class zilla_shortcodes
 							
 							// prepare
 							$coutput  = $crow_start;
-							$coutput .= '<select name="' . $cpkey . '" id="' . $cpkey . '" class="zilla-form-select zilla-cinput">' . "\n";
+							$coutput .= '<select name="' . $cpkey . '" id="' . $cpkey . '" class="themeium-form-select themeium-cinput">' . "\n";
 							
 							foreach( $cparam['options'] as $value => $option )
 							{
@@ -230,8 +230,8 @@ class zilla_shortcodes
 							
 							// prepare
 							$coutput  = $crow_start;
-							$coutput .= '<label for="' . $cpkey . '" class="zilla-form-checkbox">' . "\n";
-							$coutput .= '<input type="checkbox" class="zilla-cinput" name="' . $cpkey . '" id="' . $cpkey . '" ' . ( $cparam['std'] ? 'checked' : '' ) . ' />' . "\n";
+							$coutput .= '<label for="' . $cpkey . '" class="themeium-form-checkbox">' . "\n";
+							$coutput .= '<input type="checkbox" class="themeium-cinput" name="' . $cpkey . '" id="' . $cpkey . '" ' . ( $cparam['std'] ? 'checked' : '' ) . ' />' . "\n";
 							$coutput .= ' ' . $cparam['checkbox_text'] . '</label>' . "\n";
 							$coutput .= $crow_end;
 							
