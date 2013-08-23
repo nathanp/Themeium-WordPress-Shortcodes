@@ -13,7 +13,7 @@ class ThemeiumShortcodes {
     function __construct() 
     {	
     	require_once( plugin_dir_path( __FILE__ ) .'shortcodes.php' );
-    	define('THEMEIUM _TINYMCE_URI', plugin_dir_url( __FILE__ ) .'tinymce');
+    	define('THEMEIUM_TINYMCE_URI', plugin_dir_url( __FILE__ ) .'tinymce');
 		define('THEMEIUM_TINYMCE_DIR', plugin_dir_path( __FILE__ ) .'tinymce');
 		
         add_action('init', array(&$this, 'init'));
@@ -48,7 +48,7 @@ class ThemeiumShortcodes {
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * Defins TinyMCE rich editor js plugin
+	 * Defines TinyMCE rich editor js plugin
 	 *
 	 * @return	void
 	 */
